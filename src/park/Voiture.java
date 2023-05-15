@@ -23,11 +23,11 @@ public class Voiture implements Runnable {
 		System.out.format("[%s]: Je débute ! \n", this.nom);
 		try {
 			while (true) {
-				Thread.sleep((long) (5000 * Math.random()));
+				Thread.sleep((long) (3000*Math.random()));
 				System.out.format("[%s]: Je demande à rentrer \n", this.nom);
 				this.rentrer();
 				System.out.format("[%s]: Je viens d'entrer \n", this.nom);
-				Thread.sleep((long) (5000 * Math.random()));
+				Thread.sleep((long) (3000* Math.random()));
 				System.out.format("[%s]: Je demande à sortir \n", this.nom);
 				this.park.leave(this);
 			}
@@ -38,7 +38,7 @@ public class Voiture implements Runnable {
 
 	public void rentrer() throws InterruptedException {
 		while (!this.park.accept(this)) {
-			Thread.sleep((long) (5000 * Math.random()));
+			Thread.sleep((long) (3000));
 			System.out.format("[%s]: Je redemande à rentrer \n", this.nom);
 		}
 	}
@@ -82,10 +82,10 @@ public class Voiture implements Runnable {
 	public static void main(String[] args) {
 		ParkingUI parking = new ParkingUI();
 		Parking park = new Parking(9);
-		int nbVoitures = 20;
+		int nbVoitures = 11;
 		Thread[] voitures = new Thread[nbVoitures];
 		for (int i = 0; i < nbVoitures; i++) {
-			voitures[i] = new Thread(new Voiture("Voiture " + i, park, 0, 0));
+			voitures[i] = new Thread(new Voiture("Voiture " + (i+1), park, 0, 0));
 			voitures[i].start();
 			ParkingUI.draw();
 		}
@@ -97,5 +97,10 @@ public class Voiture implements Runnable {
 
 	public void setyInit(int y) {
 		this.yInit = y;
+	}
+
+	@Override
+	public String toString() {
+		return nom;
 	}
 }

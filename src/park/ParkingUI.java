@@ -9,8 +9,8 @@
      */
     public class ParkingUI extends javax.swing.JFrame {
     
-        public static Voiture tabParking[] = new Voiture[10];
-        public static JLabel[] parkingLabels = new JLabel[10];
+        public static Voiture tabParking[] = new Voiture[9];
+        public static JLabel[] parkingLabels = new JLabel[9];
         JLabel background = new JLabel();
     
         public ParkingUI() {
@@ -29,7 +29,7 @@
             this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
             this.setTitle("Parking");
             this.setResizable(false);
-            this.setSize(900, 400);
+            this.setSize(900, 600);
             this.setLocationRelativeTo(null);
             this.setLayout(null);
     
@@ -269,7 +269,7 @@
                                 }
                                 break;
                             case 6:
-                                v.setFinal(550, -310);
+                                v.setFinal(690, -310);
                                 for (int j = 0; j < 10; j++) {
                                     xstep = (v.getxFinal() - v.getxInit()) / 10;
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
@@ -293,7 +293,7 @@
                                             e.printStackTrace();
                                         }
                                     }
-                                    while (v.xInit > 550) {
+                                    while (v.xInit > 690) {
                                         v.xInit -= xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
@@ -305,7 +305,7 @@
                                 }
                                 break;
                             case 7:
-                                v.setFinal(550, -219);
+                                v.setFinal(690, -219);
                                 for (int j = 0; j < 10; j++) {
                                     xstep = (v.getxFinal() - v.getxInit()) / 10;
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
@@ -329,7 +329,7 @@
                                             e.printStackTrace();
                                         }
                                     }
-                                    while (v.xInit > 550) {
+                                    while (v.xInit > 690) {
                                         v.xInit -= xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
@@ -341,7 +341,7 @@
                                 }
                                 break;
                             case 8:
-                                v.setFinal(550, -128);
+                                v.setFinal(690, -128);
                                 for (int j = 0; j < 10; j++) {
                                     xstep = (v.getxFinal() - v.getxInit()) / 10;
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
@@ -365,7 +365,7 @@
                                             e.printStackTrace();
                                         }
                                     }
-                                    while (v.xInit > 550) {
+                                    while (v.xInit > 690) {
                                         v.xInit -= xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
@@ -388,10 +388,11 @@
                 if (v == null) {
                     parkingLabels[i].setIcon(null);
                 } else {
-                    parkingLabels[i].setIcon(new javax.swing.ImageIcon("car.png"));
+                    parkingLabels[i].setIcon(new javax.swing.ImageIcon(ParkingUI.class.getResource("car.png")));
                     parkingLabels[i].setBounds(v.getxInit(), v.getyInit(), 1058, 794);
                     int xstep, ystep;
-                    if (v.getInit() != v.getFinal()) {
+
+                    if ( v.getInit() !=v.getFinal()){
                         switch (i) {
                             case 0:
                                 v.setFinal(0, 0);
@@ -400,7 +401,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit < 200) {
-                                            v.xInit += xstep;
+                                            v.xInit -= xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -419,7 +420,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -428,6 +429,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 1:
                                 v.setFinal(0, 0);
@@ -436,7 +438,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit < 200) {
-                                            v.xInit += xstep;
+                                            v.xInit -= xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -455,7 +457,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -464,6 +466,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 2:
                                 v.setFinal(0, 0);
@@ -472,6 +475,43 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit < 200) {
+                                            v.xInit -= xstep;
+                                            parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
+                                            try {
+                                                Thread.sleep(25);
+                                            } catch (InterruptedException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    while (v.yInit < 0) {
+                                        v.yInit += ystep;
+                                        parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
+                                        try {
+                                            Thread.sleep(25);
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                    while (v.xInit > 0) {
+                                        v.xInit += xstep;
+                                        parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
+                                        try {
+                                            Thread.sleep(25);
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                                parkingLabels[i].setIcon(null);
+                                break;
+                            case 3:
+                                v.setFinal(0, 0);
+                                for (int j = 0; j < 10; j++) {
+                                    xstep = (v.getxFinal() - v.getxInit()) / 10;
+                                    ystep = (v.getyFinal() - v.getyInit()) / 10;
+                                    if (v.yInit < 0) {
+                                        while (v.xInit > 200) {
                                             v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
@@ -491,7 +531,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -500,42 +540,7 @@
                                         }
                                     }
                                 }
-                                break;
-                            case 3:
-                                v.setFinal(0, 0);
-                                for (int j = 0; j < 10; j++) {
-                                    xstep = (v.getxFinal() - v.getxInit()) / 10;
-                                    ystep = (v.getyFinal() - v.getyInit()) / 10;
-                                    if (v.yInit < 0) {
-                                        while (v.xInit > 200) {
-                                            v.xInit -= xstep;
-                                            parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
-                                            try {
-                                                Thread.sleep(25);
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
-                                    while (v.yInit < 0) {
-                                        v.yInit += ystep;
-                                        parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
-                                        try {
-                                            Thread.sleep(25);
-                                        } catch (InterruptedException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    while (v.xInit > 0) {
-                                        v.xInit -= xstep;
-                                        parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
-                                        try {
-                                            Thread.sleep(25);
-                                        } catch (InterruptedException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 4:
                                 v.setFinal(0, 0);
@@ -544,7 +549,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit > 200) {
-                                            v.xInit -= xstep;
+                                            v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -563,7 +568,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -572,6 +577,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 5:
                                 v.setFinal(0, 0);
@@ -580,7 +586,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit > 200) {
-                                            v.xInit -= xstep;
+                                            v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -599,7 +605,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -608,6 +614,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 6:
                                 v.setFinal(0, 0);
@@ -616,7 +623,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit > 750) {
-                                            v.xInit -= xstep;
+                                            v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -635,7 +642,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -644,6 +651,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 7:
                                 v.setFinal(0, 0);
@@ -652,7 +660,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit > 750) {
-                                            v.xInit -= xstep;
+                                            v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -671,7 +679,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -680,6 +688,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                             case 8:
                                 v.setFinal(0, 0);
@@ -688,7 +697,7 @@
                                     ystep = (v.getyFinal() - v.getyInit()) / 10;
                                     if (v.yInit < 0) {
                                         while (v.xInit > 750) {
-                                            v.xInit -= xstep;
+                                            v.xInit += xstep;
                                             parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                             try {
                                                 Thread.sleep(25);
@@ -707,7 +716,7 @@
                                         }
                                     }
                                     while (v.xInit > 0) {
-                                        v.xInit -= xstep;
+                                        v.xInit += xstep;
                                         parkingLabels[i].setBounds(v.xInit, v.yInit, 1058, 794);
                                         try {
                                             Thread.sleep(25);
@@ -716,6 +725,7 @@
                                         }
                                     }
                                 }
+                                parkingLabels[i].setIcon(null);
                                 break;
                         }
                     }

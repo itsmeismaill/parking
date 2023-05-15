@@ -46,7 +46,8 @@ public class Parking {
 		infoVoitures.remove(myVoit);
 		System.out.format("Parking: %s est sortie, il reste %d places \n", myVoit.nom, this.places());
 		for (int i = 0; i < ParkingUI.tabParking.length; i++) {
-			if (ParkingUI.tabParking[i].nom == myVoit.nom) {
+
+			if (ParkingUI.tabParking[i]!=null && ParkingUI.tabParking[i].nom.equals(myVoit.nom)) {
 				ParkingUI.tabParking[i] = null;
 				break;
 			}
